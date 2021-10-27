@@ -1,3 +1,5 @@
-correct_hypotesis: 'ID1'
-no_hints: 2
-current_hypotesis:['','','','']
+correct_hypotesis: 'HP1'
+no_hints: 12
+current_hypotesis: ['','','','']
+ontology: 'http://www.emarolab.it/cluedo-ontology'
+ontology_path: '/root/ros_ws/src/exprob_ass1/cluedo_ontology.owl'

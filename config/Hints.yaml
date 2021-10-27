@@ -1,2 +1,15 @@
-hint1: ['ID1','where','Hall']   
-hint2: ['ID1','who','Plum']
+hint1: ['HP1','where','Hall']   
+hint2: ['HP1','who','Plum']
+hint3: ['HP1','what','Rope']
+hint4: ['HP2','what','Wrench']
+hint5: ['HP2','who','Mustard']
+hint6: ['HP2','where','Library']
+hint7: ['HP3','where','Hall']   
+hint8: ['HP3','who','Plum']
+hint9: ['HP3','what','Rope']
+hint10: ['HP4','what','Wrench']
+hint11: ['HP4','who','Mustard']
+hint12: ['HP4','where','Library']
+
+
+

@@ -15,13 +15,13 @@ def perc_clbk(req):
         no_hints = rospy.get_param("/no_hints")
         rndm_hint = random.randint(1, no_hints)
         perceived_hint = rospy.get_param("/hint" + str(rndm_hint))
-        print(perceived_hint)
+            
         msg.perceived = 1
         msg.hypotesis = perceived_hint[0]
         msg.description = perceived_hint[1]
         msg.value = perceived_hint[2]
         rospy.loginfo(msg.hypotesis+':'+msg.description+' '+msg.value )
-        print(msg.hypotesis+':'+msg.description+' '+msg.value )
+        #rospy.delete_param("/hint" + str(rndm_hint))    
 
     return msg
 

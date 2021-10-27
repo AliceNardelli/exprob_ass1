@@ -7,12 +7,12 @@ from exprob_ass1.srv import CheckCorrect
 def check_correct_clbk(req):
 	hypotesis=req.hypotesis
 	if hypotesis==rospy.get_param('/correct_hypotesis'):
-		print(hypotesis,' hypotesis is correct!! ')
+		
 		rospy.loginfo(hypotesis +' hypotesis is correct!! ')
-		return True
-	print(hypotesis,' hypotesis is not correct, try again ')
+		return 1
+	
 	rospy.loginfo(hypotesis +' hypotesis is not correct ')
-	return False
+	return 0
 
 
 

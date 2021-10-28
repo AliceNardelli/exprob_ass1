@@ -13,7 +13,7 @@ _as = None
 def action_clbk(req):
   
     theta=math.atan(abs(req.actual_y-req.goal_y)/abs(req.actual_x-req.goal_x)) 
-    print('I am going to the', req.destination)
+    rospy.loginfo('I am going to the '+ req.destination)
     distance=math.sqrt(pow(req.actual_y-req.goal_y, 2)+pow(req.actual_x-req.goal_x, 2))
     counter=distance 
     _fb = exprob_ass1.msg.MoveFeedback()
@@ -23,7 +23,7 @@ def action_clbk(req):
            
     while distance>0:
 		   distance=distance-1
-		   rospy.sleep(5)
+		   rospy.sleep(1)
 		   if distance>0:
 			   if req.actual_y-req.goal_y>0:
 				   _fb.feed_y=_fb.feed_y-math.sin(theta)
@@ -40,7 +40,7 @@ def action_clbk(req):
 			   
 		   _as.publish_feedback(_fb)
 		   
-    print('I am arrived to the ',req.destination)
+    rospy.loginfo('I am arrived to the '+req.destination)
     _as.set_succeeded() 
 
 if __name__ == '__main__':

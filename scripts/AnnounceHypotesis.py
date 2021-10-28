@@ -5,7 +5,7 @@ import random
 from exprob_ass1.srv import Announcement,AnnouncementResponse
 
 def announce_clbk(req):
-    print(req.who +' with the ' + req.what +' in the ' +req.where)
+    rospy.loginfo('Announce to Oracle: ')
     rospy.loginfo(req.who +' with the ' + req.what +' in the ' +req.where)
     return True
 

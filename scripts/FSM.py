@@ -12,20 +12,11 @@ from exprob_ass1.msg import MoveAction, MoveGoal
 import actionlib
 import actionlib_msgs
 
-# INSTALLATION
-# - create ROS package in your workspace:
-#          $ catkin_create_pkg smach_tutorial std_msgs rospy
-# - move this file to the 'smach_tutorial/scr' folder and give running permissions to it with
-#          $ chmod +x state_machine.py
-# - run the 'roscore' and then you can run the state machine with
-#          $ rosrun smach_tutorial state_machine.py
-# - install the visualiser using
-#          $ sudo apt-get install ros-kinetic-smach-viewer
-# - run the visualiser with
-#          $ rosrun smach_viewer smach_viewer.py
 
 
 
+    
+   
 
 
 def ontology_interaction(
@@ -52,9 +43,8 @@ def ontology_interaction(
 def menage_response(st):
             
             st = st.replace("<http://www.emarolab.it/cluedo-ontology#", "")
-            print(st)
             st = st.replace(">", "")
-            print(st)
+     
             return st
 
 
@@ -74,15 +64,27 @@ class Inside_Room(smach.State):
         perceived_hint = client_perceive_hints()
         
         if perceived_hint.perceived == 1:
-            r1 = ontology_interaction('ADD', 'OBJECTPROP', 'IND', [perceived_hint.description, perceived_hint.hypotesis, perceived_hint.value])
-            
-            if perceived_hint.description=='where':
-               resp=ontology_interaction('ADD','IND','CLASS',[perceived_hint.value,'PLACE'])
-            elif perceived_hint.description=='what':
-               resp=ontology_interaction('ADD','IND','CLASS',[perceived_hint.value,'WEAPON'])
+            r=ontology_interaction('QUERY','IND','CLASS',['INCORRECT'])
+            print(r)
+            incorrect=[]
+            for i in range(len(r.armor_response.queried_objects)):
+                     st = menage_response(r.armor_response.queried_objects[i])
+                     incorrect.append(st)
+            if perceived_hint.hypotesis in incorrect:
+                 rospy.loginfo('the perceived hint has an id associated to an incorrect hypotesis, I will discard it')
             else:
+             r1 = ontology_interaction('ADD', 'OBJECTPROP', 'IND', [perceived_hint.description, perceived_hint.hypotesis, perceived_hint.value])
+            
+             if perceived_hint.description=='where':
+               resp=ontology_interaction('ADD','IND','CLASS',[perceived_hint.value,'PLACE'])
+             elif perceived_hint.description=='what':
+               resp=ontology_interaction('ADD','IND','CLASS',[perceived_hint.value,'WEAPON'])
+             else:
                resp=ontology_interaction('ADD','IND','CLASS',[perceived_hint.value,'PERSON'])
-            r2 = ontology_interaction('REASON', '', '', [])
+             resp2=ontology_interaction('DISJOINT','IND','CLASS',['PERSON'])
+             resp2=ontology_interaction('DISJOINT','IND','CLASS',['PLACE'])
+             resp2=ontology_interaction('DISJOINT','IND','CLASS',['WEAPON'])
+             r2 = ontology_interaction('REASON', '', '', [])
         client_move.wait_for_server()
         goal_msg = MoveGoal()
         goal_msg.destination = 'Corridor'
@@ -90,10 +92,10 @@ class Inside_Room(smach.State):
         goal_msg.actual_y = int(actual_room[2])
         goal_msg.goal_x = 0
         goal_msg.goal_x = 0
-        #client_move.send_goal(goal_msg)
-        #client_move.wait_for_result()
+        client_move.send_goal(goal_msg)
+        client_move.wait_for_result()
         userdata.room_out = 'room0'
-        rospy.loginfo('I am exit' + actual_room[0])
+        rospy.loginfo('I am exit from the ' + actual_room[0])
 
         return 'exit_from_room'
 
@@ -108,7 +110,7 @@ class Oracle_Room(smach.State):
 
     def execute(self, userdata):
         global client_move, client_rnd_room, client_check_correct, client_announce, client_perceive_hints
-
+        global incorrect
         # function called when exiting from the node, it can be blacking
         time.sleep(1)
 
@@ -124,6 +126,7 @@ class Oracle_Room(smach.State):
         resp = client_check_correct(current_hypotesis[0])
         if resp.correct==1:
              return 'correct'
+        r=ontology_interaction('ADD','IND','CLASS',[current_hypotesis[0],'INCORRECT'])
         client_move.wait_for_server()
         goal_msg = MoveGoal()
         goal_msg.destination = 'Corridor'
@@ -131,13 +134,14 @@ class Oracle_Room(smach.State):
         goal_msg.actual_y = 10
         goal_msg.goal_x = 0
         goal_msg.goal_x = 0
-        #client_move.send_goal(goal_msg)
-        #client_move.wait_for_result()
+        client_move.send_goal(goal_msg)
+        client_move.wait_for_result()
         userdata.room_out = 'room0'
+        r3=ontology_interaction('ADD','IND','CLASS',[current_hypotesis[0],'INCORRECT'])
         r1=ontology_interaction('REMOVE','IND','',[current_hypotesis[0]])
         r2=ontology_interaction('REASON','','',[])
         rospy.loginfo('I am exit from Oracle Room')
-
+        
         return 'not_correct'
 
 
@@ -158,13 +162,14 @@ class Out_Room(smach.State):
         while not rospy.is_shutdown():
             time.sleep(1)
             # ask for complete hypotesis
+            resp2=ontology_interaction('DISJOINT','IND','CLASS',['PERSON'])
+            resp2=ontology_interaction('DISJOINT','IND','CLASS',['PLACE'])
+            resp2=ontology_interaction('DISJOINT','IND','CLASS',['WEAPON'])
             resp_c = ontology_interaction('QUERY', 'IND', 'CLASS', ['COMPLETED'])
-            print(resp_c)
-            print(len(resp_c.armor_response.queried_objects))
+
             # ask for incostintent hypotesis
             resp_i = ontology_interaction('QUERY', 'IND', 'CLASS', ['INCONSISTENT'])
-            print(resp_i)
-            print(len(resp_i.armor_response.queried_objects))
+
 
             # if the length is equal means that there is not consistent
             # hypotesis to check
@@ -172,13 +177,13 @@ class Out_Room(smach.State):
     resp_i.armor_response.queried_objects) == len(
         resp_c.armor_response.queried_objects):
 			   # extract randomly a room
+               print(resp_i.armor_response.queried_objects)
                rospy.wait_for_service('random_room_service')
                random_room_resp = client_rnd_room()
                random_room = random_room_resp.random_room
                # getting room
                room = rospy.get_param(random_room)
-               print(room)
-               print(random_room)
+
                client_move.wait_for_server()
                goal_msg =MoveGoal()
                goal_msg.destination = room[0]
@@ -186,19 +191,19 @@ class Out_Room(smach.State):
                goal_msg.actual_y = 0
                goal_msg.goal_x = int(room[1])
                goal_msg.goal_x = int(room[2])
-               #client_move.send_goal(goal_msg)
-               #client_move.wait_for_result()
+               client_move.send_goal(goal_msg)
+               client_move.wait_for_result()
                userdata.room_out = random_room
                return 'move_to_a_room'
             else:
                 complete = []
-                print(resp_c.armor_response.queried_objects[0])
-                print(resp_c.armor_response.queried_objects[0])
+                
+                print(resp_i.armor_response.queried_objects)
                 for i in range(len(resp_c.armor_response.queried_objects)):
-                     print(resp_c.armor_response.queried_objects[i])
+                     
                      st = menage_response(resp_c.armor_response.queried_objects[i])
                      complete.append(st)
-                     print(st)
+               
                      print(complete)
                 if len(resp_i.armor_response.queried_objects)>0:
                   for i in range(len(resp_i.armor_response.queried_objects)):
@@ -227,8 +232,8 @@ class Out_Room(smach.State):
                 goal_msg.actual_y=0
                 goal_msg.goal_x=int(room[1])
                 goal_msg.goal_x=int(room[2])
-                #client_move.send_goal(goal_msg)
-                #client_move.wait_for_result()
+                client_move.send_goal(goal_msg)
+                client_move.wait_for_result()
                 userdata.room_out='room10'
                 return 'go_to_oracle'
 					 
@@ -241,6 +246,7 @@ class Out_Room(smach.State):
         
 def main():
     global client_move, client_rnd_room, client_check_correct, client_announce, client_perceive_hints, client_armor
+   
     rospy.init_node('FSM')
     client_armor = rospy.ServiceProxy('armor_interface_srv', ArmorDirective)    
     client_move= actionlib.SimpleActionClient('move_action_server', MoveAction)
@@ -254,7 +260,16 @@ def main():
     ontology=rospy.get_param('ontology')
     ontology_path=rospy.get_param('ontology_path')
    
-    resp1=ontology_interaction('LOAD','FILE','',[ontology_path, ontology, 'true', 'PELLET', 'true'])
+    r1=ontology_interaction('LOAD','FILE','',[ontology_path, ontology, 'true', 'PELLET', 'true'])
+    r2=ontology_interaction('ADD','CLASS','CLASS',['INCORRECT','HIPOTESIS'])   
+    r3=ontology_interaction('DISJOINT','CLASS','',['PERSON','PLACE'])
+    r4=ontology_interaction('DISJOINT','CLASS','',['PLACE','WEAPON'])
+    r5=ontology_interaction('DISJOINT','CLASS','',['WEAPON','PERSON'])
+    r6=ontology_interaction('DISJOINT','CLASS','',['INCORRECT','PERSON'])
+    r7=ontology_interaction('DISJOINT','CLASS','',['WEAPON','INCORRECT'])
+    r8=ontology_interaction('DISJOINT','CLASS','',['INCORRECT','PLACE'])
+   
+
     # declare state machine
     sm = smach.StateMachine(outcomes=['game_finished'])
     sm.userdata.actual_room = 'room0'

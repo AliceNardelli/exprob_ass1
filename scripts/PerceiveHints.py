@@ -10,7 +10,7 @@ def perc_clbk(req):
     perceived = random.randint(0, 3)
     if perceived == 0:
         msg.perceived = 0
-        rospy.loginfo('nothing perceived')
+        rospy.loginfo('Nothing perceived')
     else:
         no_hints = rospy.get_param("/no_hints")
         rndm_hint = random.randint(1, no_hints)
@@ -20,8 +20,8 @@ def perc_clbk(req):
         msg.hypotesis = perceived_hint[0]
         msg.description = perceived_hint[1]
         msg.value = perceived_hint[2]
-        rospy.loginfo(msg.hypotesis+':'+msg.description+' '+msg.value )
-        #rospy.delete_param("/hint" + str(rndm_hint))    
+        rospy.loginfo('Perceived '+ msg.hypotesis+':'+msg.description+' '+msg.value )
+          
 
     return msg
 

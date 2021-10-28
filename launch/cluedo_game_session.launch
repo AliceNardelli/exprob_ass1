@@ -10,6 +10,7 @@
     <node pkg="exprob_ass1" type="Moving.py" name="Moving" output="screen"/>
     <node pkg="exprob_ass1" type="CheckCorrect.py" name="CheckCorrect" output="screen"/>
     <node pkg="exprob_ass1" type="PerceiveHints.py" name="PerceiveHints" output="screen"/>
+    <node pkg="exprob_ass1" type="FSM.py" name="FSM" output="screen"/>
     
     
    

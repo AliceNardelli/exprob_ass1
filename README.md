@@ -4,8 +4,8 @@
 
 ## Brief introduction
 The aim of this assignment is to design a software behavioural architecture which simulates an autonomous Cluedo game. The robot which is the player wants to find who is the murder, where he killed the victime and which weapon has been used. According to that it goes around to an appartement looking for hints, makes hypotesis about the murder and reasons about these. Once it finds a complete hypotesis (which contains a person, a place and a weapon) it goes to the oracle room and asks if the hypotesis is correct. If hypotesis is not correct robot goes on looking for hints otherwise game finishes.
-The robot 
-![Tux, the Linux mascot](/root/ros_ws/src/exprob_ass1/cluedo.JFIF)
+The robot \
+![Cluedo apartment](cluedo.JFIF)
 
 ## Software architecture
 The **component diagram** shows how the overall architecture is organized. It is possible to appreciate the modularity of the architecture, I have decided to divide as much as possible each functionality to give the possibility to reuse and adapt the code in a future implementation. Below is presented the behaviour of each node that I have implemented:\

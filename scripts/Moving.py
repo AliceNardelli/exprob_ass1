@@ -19,6 +19,7 @@ def action_clbk(req):
     _fb = exprob_ass1.msg.MoveFeedback()
     _fb.feed_x= req.actual_x
     _fb.feed_y= req.actual_y
+    _fb.yaw=theta
     _as.publish_feedback(_fb)
            
     while distance>0:
@@ -38,6 +39,7 @@ def action_clbk(req):
 			   _fb.feed_x=req.goal_x
 			   _fb.feed_y=req.goal_y
 			   
+		   _fb.yaw=theta   
 		   _as.publish_feedback(_fb)
 		   
     rospy.loginfo('I am arrived to the '+req.destination)

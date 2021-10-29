@@ -8,3 +8,4 @@ bool arrived
 ---
 float64 feed_x
 float64 feed_y
+float64 yaw

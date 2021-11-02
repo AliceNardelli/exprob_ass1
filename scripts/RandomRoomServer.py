@@ -1,13 +1,29 @@
 #! /usr/bin/env python
-
+"""
+.. module:: RandomRoomServer
+    :platform: Unix
+    :synopsis: Python module for piloting the robot to the target
+.. moduleauthor:: Alice Nardelli alice.nardelli98@gmail.com
+ROS nodes used to return a random room belonging to the apartment
+Service :
+/random_room_service to get the parameter name of the random room
+"""
 import rospy
 import random
 from exprob_ass1.srv import RandomRoom,RandomRoomResponse
 
 def random_room_clbk(req):
-
+    '''
+      Description of the callback:
+      This function retrieves the empty request of the RandomRoom message.
+      Args:
+         srv(RandomRoom): empty request retrieved by */random_room_service* topic
+      Returns:
+         srv(RandomRoom): the parameter name of a random chosen room from the ones of the apartment
+    '''
     msg=RandomRoomResponse()
-    msg.random_room='room'+str(random.randint(1,9))
+    no_room=rospy.get_param("no_room")
+    msg.random_room='room'+str(random.randint(1,no_room))
     
     
     return msg

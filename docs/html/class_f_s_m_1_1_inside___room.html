@@ -99,17 +99,17 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abf23e5a8aae2d1ba67302f9ca88dca70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><pre class="fragment">A class used to represent the behavior of the robot when is inside a room
-...
+<div class="textblock"><pre class="fragment">        A class used to represent the behavior of the robot when is inside a room
+        ...
 
-Methods
--------
-init(outcomes=['exit_from_room'],
-     input_keys=['room_in'],
-     output_keys=['room_out'])
-    initialize the state
-execute(userdata)
-   implement the effective behaviour
+        Methods
+        -------
+        init(outcomes=['exit_from_room'],
+             input_keys=['room_in'],
+             output_keys=['room_out'])
+            initialize the state
+        execute(userdata)
+           implement the effective behaviour
 </pre> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6036f33ce7835694d373bae16fb8abe8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6036f33ce7835694d373bae16fb8abe8">&#9670;&nbsp;</a></span>__init__()</h2>
@@ -155,20 +155,20 @@ execute(userdata)
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">  Description of the execute method:
-  When the  robot enter in the room it can perceive or not an hint.
-  If an hint is perceived it reason about that.
-  if it belongs to an hypotesis already check as incorrect it discard it.
-  Otherwise it add the perceived hint to theontology
-  Anyway it exit from room
-  
-      Args:
- userdata
- to store the variables between states
-      
-      Returns:
- 'exit_from_room': str
- string used to pass to the next state</pre> 
+<pre class="fragment"> Description of the execute method:
+ When the  robot enter in the room it can perceive or not an hint.
+ If an hint is perceived it reason about that.
+ if it belongs to an hypotesis already check as incorrect it discard it.
+ Otherwise it add the perceived hint to theontology
+ Anyway it exit from room
+ 
+     Args:
+       userdata
+       to store the variables between states
+     
+     Returns:
+       'exit_from_room': str
+       string used to pass to the next state</pre> 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>

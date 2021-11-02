@@ -1,13 +1,13 @@
 #! /usr/bin/env python
-"""
-.. module:: CheckCorrect
-    :platform: Unix
-    :synopsis: Python module for piloting the robot to the target
-.. moduleauthor:: Alice Nardelli alice.nardelli98@gmail.com
+'''
+Module:
+  CheckCorrect
+Author:
+   Alice Nardelli alice.nardelli98@gmail.com
 ROS nodes used for check if the current consistent hypothesis is correct or not.
 Service :
-/check_correct_service to get the ID of the hypotesis to check
-"""
+   /check_correct_service to get the ID of the hypotesis to check
+'''
 import rospy
 import random
 from exprob_ass1.srv import CheckCorrect

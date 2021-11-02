@@ -2,8 +2,7 @@
 \label{class_f_s_m_1_1_out___room}\index{FSM.Out\_Room@{FSM.Out\_Room}}
 
 
-Inheritance diagram for F\+S\+M.\+Out\+\_\+\+Room\+:
-\nopagebreak
+Inheritance diagram for F\+S\+M.\+Out\+\_\+\+Room\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -12,8 +11,7 @@ Inheritance diagram for F\+S\+M.\+Out\+\_\+\+Room\+:
 \end{figure}
 
 
-Collaboration diagram for F\+S\+M.\+Out\+\_\+\+Room\+:
-\nopagebreak
+Collaboration diagram for F\+S\+M.\+Out\+\_\+\+Room\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -72,18 +70,18 @@ def \mbox{\hyperlink{class_f_s_m_1_1_out___room_a5fa431c07df764d01d2b0da303466d5
 
 
 \doxysubsection{Detailed Description}
-\begin{DoxyVerb}A class used to represent the behavior of the robot when is out of a room
+\begin{DoxyVerb}        A class used to represent the behavior of the robot when is out of a room
 
-...
+        ...
 
-Methods
--------
-init(outcomes=['go_to_oracle','move_to_a_room'],
-     input_keys=['room_in'],
-     output_keys=['room_out'])
-    initialize the state
-execute(userdata)
-   implement the effective behaviour
+        Methods
+        -------
+        init(outcomes=['go_to_oracle','move_to_a_room'],
+             input_keys=['room_in'],
+             output_keys=['room_out'])
+            initialize the state
+        execute(userdata)
+           implement the effective behaviour
 \end{DoxyVerb}
  
 
@@ -103,21 +101,21 @@ execute(userdata)
 \doxysubsubsection{\texorpdfstring{execute()}{execute()}}
 {\footnotesize\ttfamily def F\+S\+M.\+Out\+\_\+\+Room.\+execute (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{userdata }\end{DoxyParamCaption})}
 
-\begin{DoxyVerb}  Description of the execute method:
-  When the  robot is not in aroom it check if there are new consistent hypotesis to check.
-  If there is not it moves to a random room looking for hints
-  Otherwise it ask to the ontology the hypotesis and insert it in the parameter server
-  Then it moves to oracle room
-  
-      Args:
- userdata
- to store the variables between states
-      
-      Returns:
- 'move_to_a_room': str
- string used to pass to the next state, in that case robot will visit a random room
- 'go_to_oracle':str
- string used to pass to the next state, in that case robot will go to the oracle\end{DoxyVerb}
+\begin{DoxyVerb} Description of the execute method:
+ When the  robot is not in aroom it check if there are new consistent hypotesis to check.
+ If there is not it moves to a random room looking for hints
+ Otherwise it ask to the ontology the hypotesis and insert it in the parameter server
+ Then it moves to oracle room
+ 
+     Args:
+       userdata
+       to store the variables between states
+     
+     Returns:
+       'move_to_a_room': str
+       string used to pass to the next state, in that case robot will visit a random room
+       'go_to_oracle':str
+       string used to pass to the next state, in that case robot will go to the oracle\end{DoxyVerb}
  
 
 \doxysubsection{Member Data Documentation}

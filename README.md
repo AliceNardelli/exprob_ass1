@@ -1,10 +1,10 @@
 
 # Experimental Robotics Laboratory Course
-##Assignment 1
+## Assignment 1
 
 ## Brief introduction
 The aim of this assignment is to design a software behavioural architecture which simulates an autonomous Cluedo game. The robot which is the player wants to find who is the murder, where he killed the victime and which weapon has been used. According to that it goes around to an appartement looking for hints, makes hypotesis about the murder and reasons about these. Once it finds a complete hypotesis (which contains a person, a place and a weapon) it goes to the oracle room and asks if the hypotesis is correct. If hypotesis is not correct robot goes on looking for hints otherwise game finishes.
-
+![Sequence Diagram](characters.JPG)
 
 
 ## Software architecture
@@ -59,9 +59,17 @@ In the **sequence diagram** it is possible to see the behaviour of the overall s
 Clone the [exprob_ass1 repository](https://github.com/AliceNardelli/exprob_ass1) and build the workspace.
 In one terminal run the ros master and then the ontology:
 >  rosrun armor execute it.emarolab.armor.ARMORMainService
-On another terminal launch the overall sistem
+On another terminal launch the overall sistem:
 > roslaunch exprob_ass1 cluedo_game_session.launch
 If you want to use the simulation with more hints goes in the **gamesession.yaml** file and change param **no_hints** with 28 and **correct_hypotesis** with HP6. Then goes in the cited launch file and load **Hints2.yaml** instead **Hint.yaml**.
+In order to see how Finite state Machine evolves in time run:
+> rosrun smach_viewer smach_viewer.py
+
+## Relevant part to running code
+As I have already say the orchestration between component done by **FSM.py** is certainly the core of the running code. For having a more clear idea about how simulation works run **smach_viewer** is certainly an idea.
+The two images belows shows how finite state machine looks like when robot is in Out_Room and Inside_Room states. Moreover **log.txt** is the logfile of the whole simulation and givev a clear idea about the workflow.
+![Out_Room](out_room.JPG)
+![In_Room](in_room.JPG)
 
 ## Working hypothesis and environment 
 

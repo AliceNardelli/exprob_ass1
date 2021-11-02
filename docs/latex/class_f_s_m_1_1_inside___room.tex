@@ -2,8 +2,7 @@
 \label{class_f_s_m_1_1_inside___room}\index{FSM.Inside\_Room@{FSM.Inside\_Room}}
 
 
-Inheritance diagram for F\+S\+M.\+Inside\+\_\+\+Room\+:
-\nopagebreak
+Inheritance diagram for F\+S\+M.\+Inside\+\_\+\+Room\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -12,8 +11,7 @@ Inheritance diagram for F\+S\+M.\+Inside\+\_\+\+Room\+:
 \end{figure}
 
 
-Collaboration diagram for F\+S\+M.\+Inside\+\_\+\+Room\+:
-\nopagebreak
+Collaboration diagram for F\+S\+M.\+Inside\+\_\+\+Room\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -30,17 +28,17 @@ def \mbox{\hyperlink{class_f_s_m_1_1_inside___room_abf23e5a8aae2d1ba67302f9ca88d
 
 
 \doxysubsection{Detailed Description}
-\begin{DoxyVerb}A class used to represent the behavior of the robot when is inside a room
-...
+\begin{DoxyVerb}        A class used to represent the behavior of the robot when is inside a room
+        ...
 
-Methods
--------
-init(outcomes=['exit_from_room'],
-     input_keys=['room_in'],
-     output_keys=['room_out'])
-    initialize the state
-execute(userdata)
-   implement the effective behaviour
+        Methods
+        -------
+        init(outcomes=['exit_from_room'],
+             input_keys=['room_in'],
+             output_keys=['room_out'])
+            initialize the state
+        execute(userdata)
+           implement the effective behaviour
 \end{DoxyVerb}
  
 
@@ -60,20 +58,20 @@ execute(userdata)
 \doxysubsubsection{\texorpdfstring{execute()}{execute()}}
 {\footnotesize\ttfamily def F\+S\+M.\+Inside\+\_\+\+Room.\+execute (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{userdata }\end{DoxyParamCaption})}
 
-\begin{DoxyVerb}  Description of the execute method:
-  When the  robot enter in the room it can perceive or not an hint.
-  If an hint is perceived it reason about that.
-  if it belongs to an hypotesis already check as incorrect it discard it.
-  Otherwise it add the perceived hint to theontology
-  Anyway it exit from room
-  
-      Args:
- userdata
- to store the variables between states
-      
-      Returns:
- 'exit_from_room': str
- string used to pass to the next state\end{DoxyVerb}
+\begin{DoxyVerb} Description of the execute method:
+ When the  robot enter in the room it can perceive or not an hint.
+ If an hint is perceived it reason about that.
+ if it belongs to an hypotesis already check as incorrect it discard it.
+ Otherwise it add the perceived hint to theontology
+ Anyway it exit from room
+ 
+     Args:
+       userdata
+       to store the variables between states
+     
+     Returns:
+       'exit_from_room': str
+       string used to pass to the next state\end{DoxyVerb}
  
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

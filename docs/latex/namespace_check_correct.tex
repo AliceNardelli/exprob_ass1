@@ -10,13 +10,13 @@ def \mbox{\hyperlink{namespace_check_correct_a02f8b2e5a50a63297ab83e34a61e194a}{
 
 
 \doxysubsection{Detailed Description}
-\begin{DoxyVerb}.. module:: CheckCorrect
-:platform: Unix
-:synopsis: Python module for piloting the robot to the target
-.. moduleauthor:: Alice Nardelli alice.nardelli98@gmail.com
+\begin{DoxyVerb}Module:
+  CheckCorrect
+Author:
+   Alice Nardelli alice.nardelli98@gmail.com
 ROS nodes used for check if the current consistent hypothesis is correct or not.
 Service :
-/check_correct_service to get the ID of the hypotesis to check
+   /check_correct_service to get the ID of the hypotesis to check
 \end{DoxyVerb}
  
 
@@ -27,13 +27,13 @@ Service :
 \doxysubsubsection{\texorpdfstring{check\_correct\_clbk()}{check\_correct\_clbk()}}
 {\footnotesize\ttfamily def Check\+Correct.\+check\+\_\+correct\+\_\+clbk (\begin{DoxyParamCaption}\item[{}]{req }\end{DoxyParamCaption})}
 
-\begin{DoxyVerb}Description of the callback:
-This function retrieves the request field of the CheckCorrect message. Inside the custom message is present the ID of the current hypotesis. 
-This ID is compared with the ID of the correct ID stored in the parameter server.
-Args:
-   srv(CheckCorrect): data retrieved by */check_correct_service* topic
-Returns:
-   srv(CheckCorrect): 1 if the hypotesis is correct 0 otherwise
+\begin{DoxyVerb}       Description of the callback:
+       This function retrieves the request field of the CheckCorrect message. Inside the custom message is present the ID of the current hypotesis.
+       This ID is compared with the ID of the correct ID stored in the parameter server.
+       Args:
+          srv(CheckCorrect): data retrieved by */check_correct_service* topic
+       Returns:
+          srv(CheckCorrect): 1 if the hypotesis is correct 0 otherwise
 \end{DoxyVerb}
  \mbox{\Hypertarget{namespace_check_correct_a02f8b2e5a50a63297ab83e34a61e194a}\label{namespace_check_correct_a02f8b2e5a50a63297ab83e34a61e194a}} 
 \index{CheckCorrect@{CheckCorrect}!main@{main}}

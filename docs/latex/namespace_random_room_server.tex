@@ -10,13 +10,14 @@ def \mbox{\hyperlink{namespace_random_room_server_a7d1e3015004779f36ab5d2e568948
 
 
 \doxysubsection{Detailed Description}
-\begin{DoxyVerb}.. module:: RandomRoomServer
-:platform: Unix
-:synopsis: Python module for piloting the robot to the target
-.. moduleauthor:: Alice Nardelli alice.nardelli98@gmail.com
+\begin{DoxyVerb}Module: 
+   RandomRoomServer
+
+Author:
+   Alice Nardelli alice.nardelli98@gmail.com
 ROS nodes used to return a random room belonging to the apartment
 Service :
-/random_room_service to get the parameter name of the random room
+   /random_room_service to get the parameter name of the random room
 \end{DoxyVerb}
  
 
@@ -33,11 +34,11 @@ Service :
 \doxysubsubsection{\texorpdfstring{random\_room\_clbk()}{random\_room\_clbk()}}
 {\footnotesize\ttfamily def Random\+Room\+Server.\+random\+\_\+room\+\_\+clbk (\begin{DoxyParamCaption}\item[{}]{req }\end{DoxyParamCaption})}
 
-\begin{DoxyVerb}Description of the callback:
-This function retrieves the empty request of the RandomRoom message.
-Args:
-   srv(RandomRoom): empty request retrieved by */random_room_service* topic
-Returns:
-   srv(RandomRoom): the parameter name of a random chosen room from the ones of the apartment
+\begin{DoxyVerb}  Description of the callback:
+  This function retrieves the empty request of the RandomRoom message.
+  Args:
+     srv(RandomRoom): empty request retrieved by */random_room_service* topic
+  Returns:
+     srv(RandomRoom): the parameter name of a random chosen room from the ones of the apartment
 \end{DoxyVerb}
  

@@ -76,13 +76,13 @@ Functions</h2></td></tr>
 <tr class="separator:a3c4f86324d026fd4f4bb7b7f09b7a5c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><pre class="fragment">.. module:: PerceiveHints
-    :platform: Unix
-    :synopsis: Python module for piloting the robot to the target
-.. moduleauthor:: Alice Nardelli alice.nardelli98@gmail.com
+<div class="textblock"><pre class="fragment">Module:
+  PerceiveHints
+Author:
+  Alice Nardelli alice.nardelli98@gmail.com
 ROS nodes used for simulate the behavior of the robot when it looks for hint
 Service :
-/perceive_hints_service to get the ID of the hypotesis to check
+  /perceive_hints_service to get the ID of the hypotesis to check
 </pre> </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a3c4f86324d026fd4f4bb7b7f09b7a5c9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3c4f86324d026fd4f4bb7b7f09b7a5c9">&#9670;&nbsp;</a></span>main()</h2>
@@ -116,12 +116,12 @@ Service :
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Description of the callback:
-This function retrieves the empty request of the PerceiveHints message. Then it perceive if any an hint. and return it
-Args:
-   srv(PerceiveHints): empty request retrieved by */perceive_hints_service* topic
-Returns:
-   srv(PerceiveHints): the hints perceived if any
+<pre class="fragment">       Description of the callback:
+       This function retrieves the empty request of the PerceiveHints message. Then it perceive if any an hint. and return it
+       Args:
+          srv(PerceiveHints): empty request retrieved by */perceive_hints_service* topic
+       Returns:
+          srv(PerceiveHints): the hints perceived if any
 </pre> 
 </div>
 </div>

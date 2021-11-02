@@ -1,18 +1,18 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 """
-.. module:: FSM
-    :platform: Unix
-    :synopsis: Python module for piloting the robot to the target
-.. moduleauthor:: Alice Nardelli alice.nardelli98@gmail.com
+Module:
+ FSM
+Author:
+    Alice Nardelli alice.nardelli98@gmail.com
 ROS node to implement the finite state machine. Inside this node is contained the entire simulation
 Service Client:
-/random_room_service to get a random room
-/armor_interface_srv to interface with the ontology
-/check_correct_service to check if an hypotesis is correct
-/perceive_hints_service to perceive hints
-/announce_service to announce an hypotesis
+	/random_room_service to get a random room
+	/armor_interface_srv to interface with the ontology
+	/check_correct_service to check if an hypotesis is correct
+	/perceive_hints_service to perceive hints
+	/announce_service to announce an hypotesis
 Action Client:
-/move_action_server to simulate the movement
+	/move_action_server to simulate the movement
 """
 import roslib
 import rospy

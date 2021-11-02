@@ -88,10 +88,10 @@ Functions</h2></td></tr>
 <tr class="separator:acc99b577ee61be1b7cc0e2baae140224"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><pre class="fragment">.. module:: FSM
-:platform: Unix
-:synopsis: Python module for piloting the robot to the target
-.. moduleauthor:: Alice Nardelli alice.nardelli98@gmail.com
+<div class="textblock"><pre class="fragment">Module:
+ FSM
+Author:
+Alice Nardelli alice.nardelli98@gmail.com
 ROS node to implement the finite state machine. Inside this node is contained the entire simulation
 Service Client:
 /random_room_service to get a random room
@@ -137,12 +137,12 @@ Action Client:
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Description of the menage_response function:
-This function is used to menage the strings retrieved by aRMOR service
-Args:
-  st: string to manage
-Returns:
-  st: arranged string</pre> 
+<pre class="fragment">         Description of the menage_response function:
+         This function is used to menage the strings retrieved by aRMOR service
+         Args:
+           st: string to manage
+         Returns:
+           st: arranged string</pre> 
 </div>
 </div>
 <a id="a51a728d06ceb354611cb4bcb826ff9a6"></a>
@@ -182,15 +182,15 @@ Returns:
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Description of the ontology_interaction function:
-This function is used to interface with the ontology through the aRMOR action server. It get as argument all fields of the ArmorDirective message to fill.
-Args:
-   command
-   primary_command_spec
-   secondary_command_spec
-   arg
-Returns:
-   msg(ArmorDirectiveRes)</pre> 
+<pre class="fragment">       Description of the ontology_interaction function:
+       This function is used to interface with the ontology through the aRMOR action server. It get as argument all fields of the ArmorDirective message to fill.
+       Args:
+          command
+          primary_command_spec
+          secondary_command_spec
+          arg
+       Returns:
+          msg(ArmorDirectiveRes)</pre> 
 </div>
 </div>
 </div><!-- contents -->

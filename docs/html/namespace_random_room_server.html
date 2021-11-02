@@ -76,13 +76,14 @@ Functions</h2></td></tr>
 <tr class="separator:a7d1e3015004779f36ab5d2e5689484b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><pre class="fragment">.. module:: RandomRoomServer
-:platform: Unix
-:synopsis: Python module for piloting the robot to the target
-.. moduleauthor:: Alice Nardelli alice.nardelli98@gmail.com
+<div class="textblock"><pre class="fragment">Module: 
+   RandomRoomServer
+
+Author:
+   Alice Nardelli alice.nardelli98@gmail.com
 ROS nodes used to return a random room belonging to the apartment
 Service :
-/random_room_service to get the parameter name of the random room
+   /random_room_service to get the parameter name of the random room
 </pre> </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a7d1e3015004779f36ab5d2e5689484b1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7d1e3015004779f36ab5d2e5689484b1">&#9670;&nbsp;</a></span>main()</h2>
@@ -116,12 +117,12 @@ Service :
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Description of the callback:
-This function retrieves the empty request of the RandomRoom message.
-Args:
-   srv(RandomRoom): empty request retrieved by */random_room_service* topic
-Returns:
-   srv(RandomRoom): the parameter name of a random chosen room from the ones of the apartment
+<pre class="fragment">  Description of the callback:
+  This function retrieves the empty request of the RandomRoom message.
+  Args:
+     srv(RandomRoom): empty request retrieved by */random_room_service* topic
+  Returns:
+     srv(RandomRoom): the parameter name of a random chosen room from the ones of the apartment
 </pre> 
 </div>
 </div>

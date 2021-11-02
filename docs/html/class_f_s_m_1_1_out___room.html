@@ -143,18 +143,18 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a6e1e8980f7591f642e6e7638bd73c360"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><pre class="fragment">A class used to represent the behavior of the robot when is out of a room
+<div class="textblock"><pre class="fragment">        A class used to represent the behavior of the robot when is out of a room
 
-...
+        ...
 
-Methods
--------
-init(outcomes=['go_to_oracle','move_to_a_room'],
-     input_keys=['room_in'],
-     output_keys=['room_out'])
-    initialize the state
-execute(userdata)
-   implement the effective behaviour
+        Methods
+        -------
+        init(outcomes=['go_to_oracle','move_to_a_room'],
+             input_keys=['room_in'],
+             output_keys=['room_out'])
+            initialize the state
+        execute(userdata)
+           implement the effective behaviour
 </pre> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a01d28033a020f6c758e08f401bab154c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a01d28033a020f6c758e08f401bab154c">&#9670;&nbsp;</a></span>__init__()</h2>
@@ -200,21 +200,21 @@ execute(userdata)
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">  Description of the execute method:
-  When the  robot is not in aroom it check if there are new consistent hypotesis to check.
-  If there is not it moves to a random room looking for hints
-  Otherwise it ask to the ontology the hypotesis and insert it in the parameter server
-  Then it moves to oracle room
-  
-      Args:
- userdata
- to store the variables between states
-      
-      Returns:
- 'move_to_a_room': str
- string used to pass to the next state, in that case robot will visit a random room
- 'go_to_oracle':str
- string used to pass to the next state, in that case robot will go to the oracle</pre> 
+<pre class="fragment"> Description of the execute method:
+ When the  robot is not in aroom it check if there are new consistent hypotesis to check.
+ If there is not it moves to a random room looking for hints
+ Otherwise it ask to the ontology the hypotesis and insert it in the parameter server
+ Then it moves to oracle room
+ 
+     Args:
+       userdata
+       to store the variables between states
+     
+     Returns:
+       'move_to_a_room': str
+       string used to pass to the next state, in that case robot will visit a random room
+       'go_to_oracle':str
+       string used to pass to the next state, in that case robot will go to the oracle</pre> 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>

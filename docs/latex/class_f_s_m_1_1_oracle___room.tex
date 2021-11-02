@@ -2,8 +2,7 @@
 \label{class_f_s_m_1_1_oracle___room}\index{FSM.Oracle\_Room@{FSM.Oracle\_Room}}
 
 
-Inheritance diagram for F\+S\+M.\+Oracle\+\_\+\+Room\+:
-\nopagebreak
+Inheritance diagram for F\+S\+M.\+Oracle\+\_\+\+Room\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -12,8 +11,7 @@ Inheritance diagram for F\+S\+M.\+Oracle\+\_\+\+Room\+:
 \end{figure}
 
 
-Collaboration diagram for F\+S\+M.\+Oracle\+\_\+\+Room\+:
-\nopagebreak
+Collaboration diagram for F\+S\+M.\+Oracle\+\_\+\+Room\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -30,18 +28,18 @@ def \mbox{\hyperlink{class_f_s_m_1_1_oracle___room_a08c83d92b2019106603a5a36b83c
 
 
 \doxysubsection{Detailed Description}
-\begin{DoxyVerb}A class used to represent the behavior of the robot when is in the oracle room.
+\begin{DoxyVerb}        A class used to represent the behavior of the robot when is in the oracle room.
 
-...
+        ...
 
-Methods
--------
-init(outcomes=['correct','not_correct'],
-     input_keys=['room_in'],
-     output_keys=['room_out'])
-    initialize the state
-execute(userdata)
-   implement the effective behaviour
+        Methods
+        -------
+        init(outcomes=['correct','not_correct'],
+             input_keys=['room_in'],
+             output_keys=['room_out'])
+            initialize the state
+        execute(userdata)
+           implement the effective behaviour
 \end{DoxyVerb}
  
 
@@ -61,21 +59,21 @@ execute(userdata)
 \doxysubsubsection{\texorpdfstring{execute()}{execute()}}
 {\footnotesize\ttfamily def F\+S\+M.\+Oracle\+\_\+\+Room.\+execute (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{userdata }\end{DoxyParamCaption})}
 
-\begin{DoxyVerb}  Description of the execute method:
-  When the  robot enter in the Oracle room it announce the current hypotesis
-  It ask if the hypotesis is correct
-  if it is it exit the game is concluded
-  Otherwise it moves to the corridor looking for new hints
-  
-      Args:
- userdata
- to store the variables between states
-      
-      Returns:
- 'correct': str
- string used to pass to the next state, in that case the game ended
- 'not correct':str
- string used to pass to the next state, in that case robot returns looking for hints\end{DoxyVerb}
+\begin{DoxyVerb} Description of the execute method:
+ When the  robot enter in the Oracle room it announce the current hypotesis
+ It ask if the hypotesis is correct
+ if it is it exit the game is concluded
+ Otherwise it moves to the corridor looking for new hints
+ 
+     Args:
+       userdata
+       to store the variables between states
+     
+     Returns:
+       'correct': str
+       string used to pass to the next state, in that case the game ended
+       'not correct':str
+       string used to pass to the next state, in that case robot returns looking for hints\end{DoxyVerb}
  
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

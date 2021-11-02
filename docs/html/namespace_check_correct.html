@@ -76,13 +76,13 @@ Functions</h2></td></tr>
 <tr class="separator:a02f8b2e5a50a63297ab83e34a61e194a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><pre class="fragment">.. module:: CheckCorrect
-:platform: Unix
-:synopsis: Python module for piloting the robot to the target
-.. moduleauthor:: Alice Nardelli alice.nardelli98@gmail.com
+<div class="textblock"><pre class="fragment">Module:
+  CheckCorrect
+Author:
+   Alice Nardelli alice.nardelli98@gmail.com
 ROS nodes used for check if the current consistent hypothesis is correct or not.
 Service :
-/check_correct_service to get the ID of the hypotesis to check
+   /check_correct_service to get the ID of the hypotesis to check
 </pre> </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a95bac4a7eeb11168738d6cd85e2c9ac2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a95bac4a7eeb11168738d6cd85e2c9ac2">&#9670;&nbsp;</a></span>check_correct_clbk()</h2>
@@ -99,13 +99,13 @@ Service :
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Description of the callback:
-This function retrieves the request field of the CheckCorrect message. Inside the custom message is present the ID of the current hypotesis. 
-This ID is compared with the ID of the correct ID stored in the parameter server.
-Args:
-   srv(CheckCorrect): data retrieved by */check_correct_service* topic
-Returns:
-   srv(CheckCorrect): 1 if the hypotesis is correct 0 otherwise
+<pre class="fragment">       Description of the callback:
+       This function retrieves the request field of the CheckCorrect message. Inside the custom message is present the ID of the current hypotesis.
+       This ID is compared with the ID of the correct ID stored in the parameter server.
+       Args:
+          srv(CheckCorrect): data retrieved by */check_correct_service* topic
+       Returns:
+          srv(CheckCorrect): 1 if the hypotesis is correct 0 otherwise
 </pre> 
 </div>
 </div>

@@ -99,18 +99,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a08c83d92b2019106603a5a36b83ced15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><pre class="fragment">A class used to represent the behavior of the robot when is in the oracle room.
+<div class="textblock"><pre class="fragment">        A class used to represent the behavior of the robot when is in the oracle room.
 
-...
+        ...
 
-Methods
--------
-init(outcomes=['correct','not_correct'],
-     input_keys=['room_in'],
-     output_keys=['room_out'])
-    initialize the state
-execute(userdata)
-   implement the effective behaviour
+        Methods
+        -------
+        init(outcomes=['correct','not_correct'],
+             input_keys=['room_in'],
+             output_keys=['room_out'])
+            initialize the state
+        execute(userdata)
+           implement the effective behaviour
 </pre> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a300cf087fdf101c68dec2cdcc6d32165"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a300cf087fdf101c68dec2cdcc6d32165">&#9670;&nbsp;</a></span>__init__()</h2>
@@ -156,21 +156,21 @@ execute(userdata)
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">  Description of the execute method:
-  When the  robot enter in the Oracle room it announce the current hypotesis
-  It ask if the hypotesis is correct
-  if it is it exit the game is concluded
-  Otherwise it moves to the corridor looking for new hints
-  
-      Args:
- userdata
- to store the variables between states
-      
-      Returns:
- 'correct': str
- string used to pass to the next state, in that case the game ended
- 'not correct':str
- string used to pass to the next state, in that case robot returns looking for hints</pre> 
+<pre class="fragment"> Description of the execute method:
+ When the  robot enter in the Oracle room it announce the current hypotesis
+ It ask if the hypotesis is correct
+ if it is it exit the game is concluded
+ Otherwise it moves to the corridor looking for new hints
+ 
+     Args:
+       userdata
+       to store the variables between states
+     
+     Returns:
+       'correct': str
+       string used to pass to the next state, in that case the game ended
+       'not correct':str
+       string used to pass to the next state, in that case robot returns looking for hints</pre> 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>

@@ -1,12 +1,12 @@
 #! /usr/bin/env python
 """
-.. module:: PerceiveHints
-    :platform: Unix
-    :synopsis: Python module for piloting the robot to the target
-.. moduleauthor:: Alice Nardelli alice.nardelli98@gmail.com
+Module:
+  PerceiveHints
+Author:
+  Alice Nardelli alice.nardelli98@gmail.com
 ROS nodes used for simulate the behavior of the robot when it looks for hint
 Service :
-/perceive_hints_service to get the ID of the hypotesis to check
+  /perceive_hints_service to get the ID of the hypotesis to check
 """
 import rospy
 import random

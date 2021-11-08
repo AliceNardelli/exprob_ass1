@@ -61,12 +61,12 @@ In the **sequence diagram** it is possible to see the behaviour of the overall s
 
 Clone the [exprob_ass1 repository](https://github.com/AliceNardelli/exprob_ass1) and build the workspace.
 In one terminal run the ros master and then the ontology:
->  rosrun armor execute it.emarolab.armor.ARMORMainService
+> rosrun armor execute it.emarolab.armor.ARMORMainService
 On another terminal launch the overall sistem:
->  roslaunch exprob_ass1 cluedo_game_session.launch
+> roslaunch exprob_ass1 cluedo_game_session.launch
 If you want to use the simulation with more hints goes in the **gamesession.yaml** file and change param **no_hints** with 28 and **correct_hypotesis** with HP6. Then goes in the cited launch file and load **Hints2.yaml** instead **Hint.yaml**.
 In order to see how Finite state Machine evolves in time run:
->  rosrun smach_viewer smach_viewer.py
+> rosrun smach_viewer smach_viewer.py
 
 ## Relevant part to running code
 As I have already say the orchestration between component done by **FSM.py** is certainly the core of the running code. For having a more clear idea about how simulation works run **smach_viewer** is certainly an idea.
@@ -78,7 +78,7 @@ The two images belows shows how finite state machine looks like when robot is in
 ## Working hypothesis and environment 
 
 1. The model of the apartment is arranged in a matrix. Rooms are organized in a 3x3 matrix fashioned the figure below. The position of each room is correlated to the cell of the matrix corrersponding to that room. Rows and columns start enumerate from up left corner. For example the Lounge correspond to (1,1) coordinates whereas Library to (2,3). The Corridor is assumed to be at (0,0) posistion whereas the Oracle room at (10,10). I think that this model gives an hight level of abstraction and certainly gives the possibility to integrate a navigation module. For example it would be necessary a map in which each room is a waypoint stored in a new parameters file. Logically it would be also necessary a path planning algorithm and integrate also the obstacle avoidance module.
-Image below shows the arangement of rooms in the apartment that I have organized into a matrix.
+Image below shows the arangement of rooms in the apartment that I have organized into a matrix.\
 ![Cluedo apartment](cluedo.JFIF)
 2. The robot is assumed to be a point (x,y). The movement is modeled as a wayting procedure. The robot moves in a straight line from the start to the goal point with a constant speed 1 m/s. The wayting
 procedure is calculate according to that assuption. I have decided to use the action server because a durative action is a better choice than an instant one to model movement. This is particurlarly important if the node needs to be integrated with a simulation. For this last reason I have decide to model the movement in the simpler possibile way giving anyway a feedback which is an important aspect to consider in a future implementation. Moreover an action can be stopped if needed, this allows the robot additional behavior such as to change the room when it is moving if called by a person.

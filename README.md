@@ -39,15 +39,15 @@ To conclude in the package it is possible to find the ontology in the file **clu
 The **states diagram** depicts the three possible states of the robot which has been implemented in **FSM.py** through **Smach**. The first state is **Out_Room** which assumes the robot in the Corridor. From this state if there are no consistent hypotesis it pass in **Inside_Room** state otherwise in **Oracle_Room** state. In **Inside_Room** state robot look for one hint then it exit from the room and return to the Corridor. When the robot is in **Oracle_Room** state it ask if the current consistent hypotesis is correct if it is the game is finished otherwise it return to **Out_Room** seraching from hint. In the diagram each name regarding both states and transitions have been chosen according to the respective one inside the code\
 ![Sequence Diagram](seq_diagr.JPG)
 In the **sequence diagram** it is possible to see the behaviour of the overall system.\
-- Robot check for a new consistent hypotesis:
-- If there are not:
+1. Robot check for a new consistent hypotesis:
+2. If there are not:
    1. look for a random room
    2. move to that room
    3. look to a new hint
    4. return to the corridor
    5. if an hint has been perceived it reason about this and if it is belong to a hypotesis not uncorrect it add it to the ontologuìy
    6. return to check if there is a new consistent hypotesis
-- If there are:
+2. If there are:
    1. find the ID of that hypotesis
    2. move to the Oracle room
    3. annonce the hypotesis
@@ -60,12 +60,20 @@ In the **sequence diagram** it is possible to see the behaviour of the overall s
 ## Installation and running procedures
 
 Clone the [exprob_ass1 repository](https://github.com/AliceNardelli/exprob_ass1) and build the workspace.
-In one terminal run the ros master and then the ontology:
-> rosrun armor execute it.emarolab.armor.ARMORMainService
-On another terminal launch the overall sistem:
-> roslaunch exprob_ass1 cluedo_game_session.launch
-If you want to use the simulation with more hints goes in the **gamesession.yaml** file and change param **no_hints** with 28 and **correct_hypotesis** with HP6. Then goes in the cited launch file and load **Hints2.yaml** instead **Hint.yaml**.
-In order to see how Finite state Machine evolves in time run:
+In one terminal run the ros master and then the ontology: \
+> rosrun armor execute it.emarolab.armor.ARMORMainService \
+
+
+On another terminal launch the overall sistem: \
+
+
+> roslaunch exprob_ass1 cluedo_game_session.launch \
+
+
+If you want to use the simulation with more hints goes in the **gamesession.yaml** file and change param **no_hints** with 28 and **correct_hypotesis** with HP6. Then goes in the cited launch file and load **Hints2.yaml** instead **Hint.yaml**. \
+In order to see how Finite state Machine evolves in time run: \
+
+
 > rosrun smach_viewer smach_viewer.py
 
 ## Relevant part to running code

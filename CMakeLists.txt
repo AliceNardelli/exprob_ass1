@@ -168,7 +168,7 @@ include_directories(
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
  catkin_install_python(PROGRAMS
-  scripts/FSM.py scripts/RandomRoomServer.py scripts/Moving.py scripts/AnnounceHypotesis.py scripts/PerceiveHints.py scripts/CheckCorrect.py scripts/Armor_Interface.py
+  scripts/FSM.py scripts/RandomRoomServer.py scripts/Moving.py scripts/AnnounceHypotesis.py scripts/PerceiveHints.py scripts/CheckCorrect.py 
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
  )
 

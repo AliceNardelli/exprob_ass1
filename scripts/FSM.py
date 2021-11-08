@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """
 Module:
- FSM
+    FSM
 Author:
     Alice Nardelli alice.nardelli98@gmail.com
 ROS node to implement the finite state machine. Inside this node is contained the entire simulation
@@ -235,6 +235,7 @@ class Oracle_Room(smach.State):
         resp = client_check_correct(current_hypotesis[0])
         #if is correct exit from the game
         if resp.correct==1:
+             resp=ontology_interaction('SAVE','INFERENCE','',['/root/ros_ws/src/exprob_ass1/cluedo_ontology_inference.owl'])
              return 'correct'
         #otherwise it moves to the corridor
         client_move.wait_for_server()
